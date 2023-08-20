@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\PesananController;
 use App\Http\Controllers\SatuanController;
 use App\Http\Controllers\StokKeluarController;
 use App\Http\Controllers\StokMasukController;
@@ -33,22 +34,26 @@ Route::controller(AuthController::class)->group(function ()
     Route::get('/logout', 'logout')->name('logout')->middleware('auth');
 });
 
-Route::group(['middleware' => 'auth'], function(){
-    Route::middleware('admin')->prefix('admin')->group(function() {
+    Route::middleware('admin')->group(function() {
         Route::controller(DashboardController::class)->group(function () {
             Route::get('/', 'index')->name('dashboard');
         });
-        
-        Route::resources([
-            'user' => UserController::class,
-            'satuan' => SatuanController::class,
-            'kategori' => KategoriController::class,
-            'barang' => BarangController::class,
-            'stok-masuk' => StokMasukController::class,
-            'stok-keluar' => StokKeluarController::class,
-        ]);
+        Route::prefix('admin')->group(function() {
+            Route::controller(PesananController::class)->group(function () {
+                Route::get('/pesanan', 'index')->name('pesanan');
+                Route::get('/pesanan/{pesanan}/statusDone', 'statusDone')->name('pesanan.statusDone');
+                Route::get('/pesanan/{detail}/detail', 'detail')->name('pesanan.detail');
+            });
+            Route::resources([
+                'user' => UserController::class,
+                'satuan' => SatuanController::class,
+                'kategori' => KategoriController::class,
+                'barang' => BarangController::class,
+                'stok-masuk' => StokMasukController::class,
+                'stok-keluar' => StokKeluarController::class,
+            ]);
     });
 });
-
-
+    
+    
 

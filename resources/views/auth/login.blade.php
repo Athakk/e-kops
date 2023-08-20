@@ -1,226 +1,319 @@
 <!DOCTYPE html>
+<html lang="en">
 
-<!-- =========================================================
-* Sneat - Bootstrap 5 HTML Admin Template - Pro | v1.0.0
-==============================================================
 
-* Product Page: https://themeselection.com/products/sneat-bootstrap-html-admin-template/
-* Created by: ThemeSelection
-* License: You must have a valid license purchased in order to legally use the theme for your project.
-* Copyright ThemeSelection (https://themeselection.com)
+<!-- Mirrored from freshcart.codescandy.com/pages/signin.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 11 Aug 2023 04:41:14 GMT -->
 
-=========================================================
- -->
-<!-- beautify ignore:start -->
-<html
-  lang="en"
-  class="light-style customizer-hide"
-  dir="ltr"
-  data-theme="theme-default"
-  data-assets-path="{{ asset('backoffice') }}"
-  data-template="vertical-menu-template-free"
->
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
-    />
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="Codescandy" name="author">
+    <title>Masuk E-Kops </title>
+    <!-- Favicon icon-->
+    <link rel="shortcut icon" type="image/x-icon"
+        href="https://freshcart.codescandy.com/assets/images/favicon/favicon.ico">
 
-    <title>Login</title>
 
-    <meta name="description" content="" />
+    <!-- Libs CSS -->
+    <link href="{{ asset('assets/libs/bootstrap-icons/font/bootstrap-icons.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/libs/feather-webfont/dist/feather-icons.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/libs/simplebar/dist/simplebar.min.css') }}" rel="stylesheet">
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('backoffice/img/favicon/favicon.ico') }}" />
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/css/theme.min.css') }}">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M8S4MT3EYG"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-    <!-- Icons. Uncomment required icon fonts -->
-    <link rel="stylesheet" href="{{ asset('backoffice/vendor/fonts/boxicons.css') }}" />
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
 
-    <!-- Core CSS -->
-    <link rel="stylesheet" href="{{ asset('backoffice/vendor/css/core.css') }}" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="{{ asset('backoffice/vendor/css/theme-default.css') }}" class="template-customizer-theme-css" />
-    <link rel="stylesheet" href="{{ asset('backoffice/css/demo.css') }}" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        gtag('config', 'G-M8S4MT3EYG');
+    </script>
 
-    <!-- Vendors CSS -->
-    <link rel="stylesheet" href="{{ asset('backoffice/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
+</head>
 
-    <!-- Page CSS -->
-    <!-- Page -->
-    <link rel="stylesheet" href="{{ asset('backoffice/vendor/css/pages/page-auth.css') }}" />
-    <!-- Helpers -->
-    <script src="{{ asset('backoffice/vendor/js/helpers.js') }}"></script>
+<body>
 
-    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
-    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-    <script src="{{ asset('backoffice/js/config.js') }}"></script>
-  </head>
-
-  <body>
-    <!-- Content -->
-
-    <div class="container-xxl">
-      <div class="authentication-wrapper authentication-basic container-p-y">
-        <div class="authentication-inner">
-          <!-- Register -->
-          <div class="card">
-            <div class="card-body">
-              <!-- Logo -->
-              <div class="app-brand justify-content-center">
-                <a href="index.html" class="app-brand-link gap-2">
-                  <span class="app-brand-logo demo">
-                    <svg
-                      width="25"
-                      viewBox="0 0 25 42"
-                      version="1.1"
-                      xmlns="http://www.w3.org/2000/svg"
-                      xmlns:xlink="http://www.w3.org/1999/xlink"
-                    >
-                      <defs>
-                        <path
-                          d="M13.7918663,0.358365126 L3.39788168,7.44174259 C0.566865006,9.69408886 -0.379795268,12.4788597 0.557900856,15.7960551 C0.68998853,16.2305145 1.09562888,17.7872135 3.12357076,19.2293357 C3.8146334,19.7207684 5.32369333,20.3834223 7.65075054,21.2172976 L7.59773219,21.2525164 L2.63468769,24.5493413 C0.445452254,26.3002124 0.0884951797,28.5083815 1.56381646,31.1738486 C2.83770406,32.8170431 5.20850219,33.2640127 7.09180128,32.5391577 C8.347334,32.0559211 11.4559176,30.0011079 16.4175519,26.3747182 C18.0338572,24.4997857 18.6973423,22.4544883 18.4080071,20.2388261 C17.963753,17.5346866 16.1776345,15.5799961 13.0496516,14.3747546 L10.9194936,13.4715819 L18.6192054,7.984237 L13.7918663,0.358365126 Z"
-                          id="path-1"
-                        ></path>
-                        <path
-                          d="M5.47320593,6.00457225 C4.05321814,8.216144 4.36334763,10.0722806 6.40359441,11.5729822 C8.61520715,12.571656 10.0999176,13.2171421 10.8577257,13.5094407 L15.5088241,14.433041 L18.6192054,7.984237 C15.5364148,3.11535317 13.9273018,0.573395879 13.7918663,0.358365126 C13.5790555,0.511491653 10.8061687,2.3935607 5.47320593,6.00457225 Z"
-                          id="path-3"
-                        ></path>
-                        <path
-                          d="M7.50063644,21.2294429 L12.3234468,23.3159332 C14.1688022,24.7579751 14.397098,26.4880487 13.008334,28.506154 C11.6195701,30.5242593 10.3099883,31.790241 9.07958868,32.3040991 C5.78142938,33.4346997 4.13234973,34 4.13234973,34 C4.13234973,34 2.75489982,33.0538207 2.37032616e-14,31.1614621 C-0.55822714,27.8186216 -0.55822714,26.0572515 -4.05231404e-15,25.8773518 C0.83734071,25.6075023 2.77988457,22.8248993 3.3049379,22.52991 C3.65497346,22.3332504 5.05353963,21.8997614 7.50063644,21.2294429 Z"
-                          id="path-4"
-                        ></path>
-                        <path
-                          d="M20.6,7.13333333 L25.6,13.8 C26.2627417,14.6836556 26.0836556,15.9372583 25.2,16.6 C24.8538077,16.8596443 24.4327404,17 24,17 L14,17 C12.8954305,17 12,16.1045695 12,15 C12,14.5672596 12.1403557,14.1461923 12.4,13.8 L17.4,7.13333333 C18.0627417,6.24967773 19.3163444,6.07059163 20.2,6.73333333 C20.3516113,6.84704183 20.4862915,6.981722 20.6,7.13333333 Z"
-                          id="path-5"
-                        ></path>
-                      </defs>
-                      <g id="g-app-brand" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                        <g id="Brand-Logo" transform="translate(-27.000000, -15.000000)">
-                          <g id="Icon" transform="translate(27.000000, 15.000000)">
-                            <g id="Mask" transform="translate(0.000000, 8.000000)">
-                              <mask id="mask-2" fill="white">
-                                <use xlink:href="#path-1"></use>
-                              </mask>
-                              <use fill="#696cff" xlink:href="#path-1"></use>
-                              <g id="Path-3" mask="url(#mask-2)">
-                                <use fill="#696cff" xlink:href="#path-3"></use>
-                                <use fill-opacity="0.2" fill="#FFFFFF" xlink:href="#path-3"></use>
-                              </g>
-                              <g id="Path-4" mask="url(#mask-2)">
-                                <use fill="#696cff" xlink:href="#path-4"></use>
-                                <use fill-opacity="0.2" fill="#FFFFFF" xlink:href="#path-4"></use>
-                              </g>
-                            </g>
-                            <g
-                              id="Triangle"
-                              transform="translate(19.000000, 11.000000) rotate(-300.000000) translate(-19.000000, -11.000000) "
-                            >
-                              <use fill="#696cff" xlink:href="#path-5"></use>
-                              <use fill-opacity="0.2" fill="#FFFFFF" xlink:href="#path-5"></use>
-                            </g>
-                          </g>
-                        </g>
-                      </g>
-                    </svg>
-                  </span>
-                  <span class="app-brand-text demo text-body fw-bolder">Sneat</span>
+    <!-- navigation -->
+    <div class="border-bottom shadow-sm">
+        <nav class="navbar navbar-light py-2">
+            <div class="container justify-content-center justify-content-lg-between">
+                <a class="navbar-brand" href="https://freshcart.codescandy.com/index.html">
+                    <img src="https://freshcart.codescandy.com/assets/images/logo/freshcart-logo.svg" alt=""
+                        class="d-inline-block align-text-top">
                 </a>
-              </div>
-              <!-- /Logo -->
-              <form id="formAuthentication" class="mb-3" method="POST" action="{{ route('authenticate') }}">
-                @csrf
-                <div class="mb-3">
-                  <label for="email" class="form-label">Email</label>
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="email"
-                    name="email"
-                    placeholder="Masukkan email"
-                    autofocus
-                    required
-                  />
-                </div>
-                <div class="mb-3 form-password-toggle">
-                  <div class="d-flex justify-content-between">
-                    <label class="form-label" for="password">Password</label>
-                  </div>
-                  <div class="input-group input-group-merge">
-                    <input
-                      type="password"
-                      id="password"
-                      class="form-control"
-                      name="password"
-                      placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                      aria-describedby="password"
-                      required
-                    />
-                  </div>
-                </div>
-                {{-- <div class="mb-3">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="remember-me" />
-                    <label class="form-check-label" for="remember-me"> Remember Me </label>
-                  </div>
-                </div> --}}
-                <div class="mb-3">
-                  <button class="btn btn-primary d-grid w-100" type="submit">Masuk</button>
-                </div>
-              </form>
-
-              <p class="text-center">
-                <span>Belum memiliki akun?</span>
-                <a href="{{ route('register') }}">
-                  <span>Buat akun</span>
-                </a>
-              </p>
+                <span class="navbar-text">
+                    Sudah punya akun? <a href="{{ Route('login') }}">Masuk</a>
+                </span>
             </div>
-          </div>
-          <!-- /Register -->
-        </div>
-      </div>
+        </nav>
     </div>
 
-    <!-- Core JS -->
-    <!-- build:js assets/vendor/js/core.js -->
-    <script src="{{ asset('backoffice/vendor/libs/jquery/jquery.js') }}"></script>
-    <script src="{{ asset('backoffice/vendor/libs/popper/popper.js') }}"></script>
-    <script src="{{ asset('backoffice/vendor/js/bootstrap.js') }}"></script>
-    <script src="{{ asset('backoffice/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
+    <main>
+        <!-- section -->
+        <section class="my-lg-14 my-8">
+            <div class="container">
+                <!-- row -->
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-12 col-md-6 col-lg-4 order-lg-1 order-2">
+                        <!-- img -->
+                        <img src="https://freshcart.codescandy.com/assets/images/svg-graphics/signin-g.svg"
+                            alt="" class="img-fluid">
+                    </div>
+                    <!-- col -->
+                    <div class="col-12 col-md-6 offset-lg-1 col-lg-4 order-lg-2 order-1">
+                        <div class="mb-lg-9 mb-5">
+                            <h1 class="mb-1 h2 fw-bold">Sign in to E-Kops</h1>
+                            <p>Selamat datang di E-Kops! Masukkan email dan mulai.</p>
+                        </div>
 
-    <script src="{{ asset('backoffice/vendor/js/menu.js') }}"></script>
-    <!-- endbuild -->
+                        <form method="POST" action="{{ route('authenticate') }}">
+                            @csrf
+                            <div class="row g-3">
+                                <!-- row -->
 
-    <!-- Vendors JS -->
+                                <div class="col-12">
+                                    <!-- input -->
+                                    <input type="email" class="form-control" id="email" name="email"
+                                        placeholder="Email" required>
+                                </div>
+                                <div class="col-12">
+                                    <!-- input -->
+                                    <div class="password-field position-relative">
+                                        <input type="password" id="password" name="password"
+                                            placeholder="Masukkan password" class="form-control" required>
+                                    </div>
 
-    <!-- Main JS -->
-    <script src="{{ asset('backoffice/js/main.js') }}"></script>
+                                </div>
+                                <!-- btn -->
+                                <div class="col-12 d-grid"> <button type="submit"
+                                        class="btn btn-primary">Masuk</button>
+                                </div>
+                                <!-- link -->
+                                <div>Belum punya akun? <a href="{{ route('register') }}">Buat akun</a></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <!-- Page JS -->
-
-    <!-- Place this tag in your head or just before your close body tag. -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
-        integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    </main>
 
 
-        <script>
-            @if (Session::has('success'))
-                toastr.success('{!! session('success') !!}');
-            @elseif (Session::has('failed'))
-                toastr.error('{!! session('failed') !!}');
-            @endif
-        </script>
-  </body>
+
+
+    <!-- Footer -->
+    <!-- footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4 py-4">
+                <div class="col-12 col-md-12 col-lg-4">
+                    <h6 class="mb-4">Categories</h6>
+                    <div class="row">
+                        <div class="col-6">
+                            <!-- list -->
+                            <ul class="nav flex-column">
+                                <li class="nav-item mb-2"><a href="#!" class="nav-link">Vegetables & Fruits</a>
+                                </li>
+                                <li class="nav-item mb-2"><a href="#!" class="nav-link"> Breakfast & instant
+                                        food</a></li>
+                                <li class="nav-item mb-2"><a href="#!" class="nav-link"> Bakery & Biscuits</a></li>
+                                <li class="nav-item mb-2"><a href="#!" class="nav-link">Atta, rice & dal</a></li>
+                                <li class="nav-item mb-2"><a href="#!" class="nav-link">Sauces & spreads</a></li>
+                                <li class="nav-item mb-2"><a href="#!" class="nav-link">Organic & gourmet</a></li>
+                                <li class="nav-item mb-2"><a href="#!" class="nav-link"> Baby care</a></li>
+                                <li class="nav-item mb-2"><a href="#!" class="nav-link">Cleaning essentials</a>
+                                </li>
+                                <li class="nav-item mb-2"><a href="#!" class="nav-link">Personal care</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <!-- list -->
+                            <ul class="nav flex-column">
+                                <li class="nav-item mb-2"><a href="#!" class="nav-link">Dairy, bread & eggs</a>
+                                </li>
+                                <li class="nav-item mb-2"><a href="#!" class="nav-link"> Cold drinks &
+                                        juices</a></li>
+                                <li class="nav-item mb-2"><a href="#!" class="nav-link"> Tea, coffee &
+                                        drinks</a></li>
+                                <li class="nav-item mb-2"><a href="#!" class="nav-link">Masala, oil & more</a>
+                                </li>
+                                <li class="nav-item mb-2"><a href="#!" class="nav-link">Chicken, meat & fish</a>
+                                </li>
+                                <li class="nav-item mb-2"><a href="#!" class="nav-link">Paan corner</a></li>
+                                <li class="nav-item mb-2"><a href="#!" class="nav-link"> Pharma & wellness</a>
+                                </li>
+                                <li class="nav-item mb-2"><a href="#!" class="nav-link">Home & office</a></li>
+                                <li class="nav-item mb-2"><a href="#!" class="nav-link">Pet care</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-12 col-lg-8">
+                    <div class="row g-4">
+                        <div class="col-6 col-sm-6 col-md-3">
+                            <h6 class="mb-4">Get to know us</h6>
+                            <!-- list -->
+                            <ul class="nav flex-column">
+                                <li class="nav-item mb-2"><a href="#!" class="nav-link">Company</a></li>
+                                <li class="nav-item mb-2"><a href="#!" class="nav-link">About</a></li>
+                                <li class="nav-item mb-2"><a href="#1" class="nav-link">Blog</a></li>
+                                <li class="nav-item mb-2"><a href="#!" class="nav-link">Help Center</a></li>
+                                <li class="nav-item mb-2"><a href="#!" class="nav-link">Our Value</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6 col-sm-6 col-md-3">
+                            <h6 class="mb-4">For Consumers</h6>
+                            <ul class="nav flex-column">
+                                <!-- list -->
+                                <li class="nav-item mb-2"><a href="#!" class="nav-link">Payments</a></li>
+                                <li class="nav-item mb-2"><a href="#!" class="nav-link">Shipping</a></li>
+                                <li class="nav-item mb-2"><a href="#!" class="nav-link">Product Returns</a></li>
+                                <li class="nav-item mb-2"><a href="#!" class="nav-link">FAQ</a></li>
+                                <li class="nav-item mb-2"><a href="shop-checkout.html" class="nav-link">Shop
+                                        Checkout</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6 col-sm-6 col-md-3">
+                            <h6 class="mb-4">Become a Shopper</h6>
+                            <ul class="nav flex-column">
+                                <!-- list -->
+                                <li class="nav-item mb-2"><a href="#!" class="nav-link">Shopper
+                                        Opportunities</a></li>
+                                <li class="nav-item mb-2"><a href="#!" class="nav-link">Become a Shopper</a>
+                                </li>
+                                <li class="nav-item mb-2"><a href="#!" class="nav-link">Earnings</a></li>
+                                <li class="nav-item mb-2"><a href="#!" class="nav-link">Ideas & Guides</a></li>
+                                <li class="nav-item mb-2"><a href="#!" class="nav-link">New Retailers</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6 col-sm-6 col-md-3">
+                            <h6 class="mb-4">Freshcart programs</h6>
+                            <ul class="nav flex-column">
+                                <!-- list -->
+                                <li class="nav-item mb-2"><a href="#!" class="nav-link">Freshcart programs</a>
+                                </li>
+                                <li class="nav-item mb-2"><a href="#!" class="nav-link">Gift Cards</a></li>
+                                <li class="nav-item mb-2"><a href="#!" class="nav-link">Promos & Coupons</a>
+                                </li>
+                                <li class="nav-item mb-2"><a href="#!" class="nav-link">Freshcart Ads</a></li>
+                                <li class="nav-item mb-2"><a href="#!" class="nav-link">Careers</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-top py-4">
+                <div class="row align-items-center">
+                    <div class="col-lg-5 text-lg-start text-center mb-2 mb-lg-0">
+                        <ul class="list-inline mb-0">
+                            <li class="list-inline-item text-dark">Payment Partners</li>
+                            <li class="list-inline-item">
+                                <a href="#!"><img
+                                        src="https://freshcart.codescandy.com/assets/images/payment/amazonpay.svg"
+                                        alt=""></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#!"><img
+                                        src="https://freshcart.codescandy.com/assets/images/payment/american-express.svg"
+                                        alt=""></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#!"><img
+                                        src="https://freshcart.codescandy.com/assets/images/payment//mastercard.svg"
+                                        alt=""></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#!"><img
+                                        src="https://freshcart.codescandy.com/assets/images/payment/paypal.svg"
+                                        alt=""></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#!"><img
+                                        src="https://freshcart.codescandy.com/assets/images/payment/visa.svg"
+                                        alt=""></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-7 mt-4 mt-md-0">
+                        <ul class="list-inline mb-0 text-lg-end text-center">
+                            <li class="list-inline-item mb-2 mb-md-0 text-dark">Get deliveries with FreshCart</li>
+                            <li class="list-inline-item ms-4">
+                                <a href="#!"> <img
+                                        src="https://freshcart.codescandy.com/assets/images/appbutton/appstore-btn.svg"
+                                        alt="" style="width: 140px;"></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#!"> <img
+                                        src="https://freshcart.codescandy.com/assets/images/appbutton/googleplay-btn.svg"
+                                        alt="" style="width: 140px;"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            <div class="border-top py-4">
+                <div class="row align-items-center">
+                    <div class="col-md-6"><span class="small text-muted">© 2022 <span id="copyright"> -
+                                <script>
+                                    document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
+                                </script>
+                            </span>FreshCart eCommerce HTML Template. All rights reserved. Powered by <a
+                                href="https://codescandy.com/">Codescandy</a>.</span></div>
+                    <div class="col-md-6">
+                        <ul class="list-inline text-md-end mb-0 small mt-3 mt-md-0">
+                            <li class="list-inline-item text-muted">Follow us on</li>
+                            <li class="list-inline-item me-1">
+                                <a href="#!" class="btn btn-xs btn-social btn-icon"> <svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                                        <path
+                                            d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+                                    </svg></a>
+                            </li>
+                            <li class="list-inline-item me-1">
+                                <a href="#!" class="btn btn-xs btn-social btn-icon"> <svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+                                        <path
+                                            d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
+                                    </svg></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#!" class="btn btn-xs btn-social btn-icon"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+                                        <path
+                                            d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
+                                    </svg></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    <!-- Javascript-->
+    <!-- Libs JS -->
+    <script src="{{ asset('assets/libs/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/simplebar/dist/simplebar.min.js') }}"></script>
+
+    <!-- Theme JS -->
+    <script src="{{ asset('assets/js/theme.min.js') }}"></script>
+
+</body>
+
+
+<!-- Mirrored from freshcart.codescandy.com/pages/signin.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 11 Aug 2023 04:41:14 GMT -->
+
 </html>

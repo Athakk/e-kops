@@ -8,18 +8,14 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     function index(Request $request) {
-        
-        $keyword = $request->input('query');
-        
-            $user = User::get();
-        
+        $user = User::get();
         return view('admin.user.index', compact('user'));
     }
 
     function create() {
         return view('admin.user.create');
     }
-    
+
     function store(Request $request) {
         $request->validate([
             'nama' => 'required',

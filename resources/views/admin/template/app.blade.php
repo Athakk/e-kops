@@ -31,8 +31,9 @@
 
     <meta name="description" content="" />
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('backoffice/img/favicon/favicon.ico') }}" />
+    <!-- Icon -->
+    <link rel="shortcut icon" type="image/x-icon"
+        href="https://freshcart.codescandy.com/assets/images/favicon/favicon.ico">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -49,7 +50,7 @@
     <link rel="stylesheet" href="{{ asset('backoffice/vendor/css/core.css') }}" class="template-customizer-core-css" />
     <link rel="stylesheet" href="{{ asset('backoffice/vendor/css/theme-default.css') }}" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="{{ asset('backoffice/css/demo.css') }}" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ asset('backoffice/css/toastr.css') }}"/>
 
 
 
@@ -70,7 +71,7 @@
 
     
     {{-- SweetAlert --}}
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="{{ asset('backoffice/js/SweetAlert.min.js') }}"></script>
 
     {{-- Dropify --}}
     <script src="{{ asset('backoffice/js/dropify.min.js') }}"></script>
@@ -166,8 +167,8 @@
               </a>
             </li>
 
-            <li class="menu-item {{ Route::current()->getName() == 'pesanan' ? 'active' : '' }}">
-              <a href="#" class="menu-link">
+            <li class="menu-item {{ explode('.', Route::current()->getName())[0] == 'pesanan' ? 'active' : '' }}">
+              <a href="{{ route('pesanan') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-bar-chart-alt-2"></i>
                 <div data-i18n="Analytics">Pesanan</div>
               </a>

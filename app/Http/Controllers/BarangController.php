@@ -6,6 +6,7 @@ use App\Models\Barang;
 use App\Models\Kategori;
 use App\Models\Satuan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class BarangController extends Controller
 {
@@ -33,7 +34,7 @@ class BarangController extends Controller
         ]);
 
         $barang = new Barang;
-        if (isset($request['file'])) {
+        if ($request->file('file')) {
             $foto_name = time() . '-' . $request->file('file')->getClientOriginalName();
             $image = $request->file('file')->storeAs('public/barang', $foto_name);
             $barang->foto = $foto_name;
@@ -41,7 +42,7 @@ class BarangController extends Controller
 
         // dd($request['foto']);
         $barang->nm_barang = $request->nm_barang;
-        $barang->harga = $request->harga;
+        $barang->harga = str_replace('.', '', $request->harga);
         $barang->satuan_id = $request->satuan_id;
         $barang->kategori_id = $request->kategori_id;
         $barang->stok = $request->stok;
@@ -65,26 +66,30 @@ class BarangController extends Controller
     function update(Request $request, Barang $barang) {
         $request->validate([
             'nm_barang' => 'required',
-            'stok' => 'required',
             'satuan_id' => 'required',
             'harga' => 'required',
             'kategori_id' => 'required',
-
         ]);
 
-        if (isset($request['foto'])) {
-            if (file_exists(storage_path('app/public/' . str_replace('storage/', '', $barang->foto)))) {
-                unlink(storage_path('app/public/' . str_replace('storage/', '', $barang->foto)));
-            }
-            $request['foto'] = 'storage/' . $request->foto->store('barang', 'public');
+        if ($request->file('file')) {
+            File::delete('storage/barang/'. $barang->foto);
+
+            $foto_name = time() . '-' . $request->file('file')->getClientOriginalName();
+            $image = $request->file('file')->storeAs('public/barang', $foto_name);
+            $barang->foto = $foto_name;
         }
 
+        $barang->nm_barang = $request->nm_barang;
+        $barang->harga = str_replace('.', '', $request->harga);
+        $barang->satuan_id = $request->satuan_id;
+        $barang->kategori_id = $request->kategori_id;
         $barang->update();
         
         return redirect()->route('barang.index')->with('success', 'Barang berhasil diubah!');;
     }
 
     function destroy(Barang $barang) {
+        File::delete('storage/barang/'. $barang->foto);
         Barang::destroy($barang->id);
         return response()->json(['status' => 'Barang berhasil dihapus!']);
     }

@@ -33,11 +33,12 @@
                             @forelse ($barang as $item)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td><img src="{{ asset('storage/barang/' . $item->foto) }}" alt="Foto barang"></td>
+                                    <td><img src="{{ asset('storage/barang/' . $item->foto) }}" width="100px"
+                                            alt="Foto barang"></td>
                                     <td>{{ $item->nm_barang }}</td>
                                     <td>{{ $item->kategori->nm_kategori }}</td>
                                     <td>{{ $item->stok . ' ' . $item->satuan->nm_satuan }}</td>
-                                    <td>{{ 'Rp. ' . $item->harga }}</td>
+                                    <td>{{ 'Rp. ' . number_format($item->harga, 0, ',', '.') }}</td>
                                     <td class="d-flex gap-1">
                                         <a href="{{ route('barang.edit', $item->id) }}">
                                             <button type="button" class="btn btn-icon btn-warning">

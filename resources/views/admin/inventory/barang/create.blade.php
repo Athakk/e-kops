@@ -46,7 +46,7 @@
                             <div class="mb-3">
                                 <label class="form-label" for="harga">Harga</label>
                                 <input type="text" class="form-control" id="harga" name="harga" placeholder="harga"
-                                    required fdprocessedid="cpen0p">
+                                    required fdprocessedid="cpen0p" oninput="formatHarga()">
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -64,7 +64,7 @@
                         <div class="col-md-12">
                             <div class="mb-3">
                                 <label class="form-label" for="file">Foto Barang</label>
-                                <input type="file" class="form-control" id="file" name="file"
+                                <input type="file" class="dropify form-control" id="file" name="file"
                                     data-max-file-size="3M" />
                             </div>
                         </div>
@@ -80,5 +80,16 @@
     </div>
     <script>
         $('.dropify').dropify();
+
+        function formatHarga() {
+            const inputElement = document.getElementById('harga');
+            let value = inputElement.value.replace(/\D/g, ''); // Hapus karakter non-numeric
+
+            if (value !== "") {
+                value = parseInt(value);
+                const formattedValue = value.toLocaleString('id-ID');
+                inputElement.value = formattedValue;
+            }
+        }
     </script>
 @endsection

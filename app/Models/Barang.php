@@ -21,13 +21,8 @@ class Barang extends Model
         return $this->belongsTo(Kategori::class, 'kategori_id', 'id');
     }
 
-    public static function booted() {
-        parent::boot();
-
-        self::deleted(function ($model) {
-            if (file_exists(storage_path('app/public/' . str_replace('storage/', '', $model->foto)))) {
-                unlink(storage_path('app/public/' . str_replace('storage/', '', $model->foto)));
-            }
-        });
+    public function pesananDetail()
+    {
+        return $this->hasMany(PesananDetail::class, 'barang_id', 'id');
     }
 }
