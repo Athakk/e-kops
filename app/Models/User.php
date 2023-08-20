@@ -49,4 +49,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Pesanan::class, 'user_id', 'id');
     }
+
+
+    public function barangs()
+    {
+        return $this->belongsToMany(Barang::class, 'keranjangs', 'user_id', 'barang_id');
+    }
 }

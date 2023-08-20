@@ -4,11 +4,13 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\KeranjangController;
 use App\Http\Controllers\PesananController;
 use App\Http\Controllers\SatuanController;
 use App\Http\Controllers\StokKeluarController;
 use App\Http\Controllers\StokMasukController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserFrontController;
 use Illuminate\Support\Facades\Route;
 use PHPUnit\Framework\Attributes\Group;
 
@@ -23,8 +25,7 @@ use PHPUnit\Framework\Attributes\Group;
 |
 */
 
-Route::controller(AuthController::class)->group(function () 
-{
+Route::controller(AuthController::class)->group(function () {
     Route::middleware('guest')->group(function () {
         Route::get('/login', 'login')->name('login');
         Route::post('/login', 'authenticate')->name('authenticate');
@@ -33,6 +34,18 @@ Route::controller(AuthController::class)->group(function ()
     });
     Route::get('/logout', 'logout')->name('logout')->middleware('auth');
 });
+
+    Route::middleware('auth')->group(function() {
+        Route::controller(UserFrontController::class)->group(function () {
+            Route::get('/index', 'index')->name('index');
+            Route::get('/toko', 'toko')->name('toko');
+            Route::get('/pesananHistory', 'pesananHistory')->name('pesananHistory');
+        });
+
+        Route::controller(KeranjangController::class)->group(function () {
+            Route::get('/addKeranjang/{barang}', 'addKeranjang')->name('addKeranjang');
+        });
+    });
 
     Route::middleware('admin')->group(function() {
         Route::controller(DashboardController::class)->group(function () {

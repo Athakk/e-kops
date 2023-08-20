@@ -71,6 +71,7 @@ class BarangController extends Controller
             'kategori_id' => 'required',
         ]);
 
+
         if ($request->file('file')) {
             File::delete('storage/barang/'. $barang->foto);
 

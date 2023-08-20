@@ -25,4 +25,9 @@ class Barang extends Model
     {
         return $this->hasMany(PesananDetail::class, 'barang_id', 'id');
     }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'keranjangs', 'barang_id', 'user_id');
+    }
 }
