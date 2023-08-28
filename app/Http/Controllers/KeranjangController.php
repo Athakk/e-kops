@@ -25,9 +25,18 @@ class KeranjangController extends Controller
         } else {
             $keranjang->qty += 1;
         }
+
+        if ($barang->stok <= 0) {
+            return redirect()->back()->with('failed', 'Gagal menambahkan ke keranjang');
+        }
+
         $keranjang->save();
         
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Berhasil tambah ke kerajang!');
+    }
+
+    function addKeranjangByDetail() {
+
     }
 
 }

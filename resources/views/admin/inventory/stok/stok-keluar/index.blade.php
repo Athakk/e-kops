@@ -34,17 +34,7 @@
                                     <td>{{ $item->barang->nm_barang }}</td>
                                     <td>{{ $item->stok_keluar . ' ' . $item->barang->satuan->nm_satuan }}</td>
                                     <td>{{ $item->tanggal }}</td>
-                                    <td class="d-flex gap-1">
-                                        <a href="{{ route('stok-keluar.edit', $item->id) }}">
-                                            <button type="button" class="btn btn-icon btn-warning">
-                                                <span class="tf-icons bx bx-edit"></span>
-                                            </button>
-                                        </a>
-                                        <button onclick="deleteStokKeluar('{{ route('stok-keluar.destroy', $item->id) }}')"
-                                            type="submit" class="btn btn-icon btn-danger btn-delete">
-                                            <span class="tf-icons bx bx-trash"></span>
-                                        </button>
-                                    </td>
+                                    <td></td>
                                 </tr>
                             @endforeach
 

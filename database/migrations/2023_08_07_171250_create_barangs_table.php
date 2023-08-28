@@ -22,7 +22,7 @@ return new class extends Migration
             $table->foreignIdFor(Kategori::class)->onDelete('restrict');;
             
             $table->integer('stok');
-            $table->string('foto')->nullable();
+            $table->string('foto');
             $table->timestamps();
         });
     }

@@ -39,6 +39,12 @@ class StokKeluarController extends Controller
             'tanggal' => 'required',
         ]);
 
+        $barang = Barang::find($request['barang_id']);
+
+        if (($barang->stok - $request['stok_keluar']) < 0) {
+            return redirect()->route('stok-keluar.create')->with('failed', 'Gagal menambahkan stok kurang');
+        }
+
 
         StokKeluar::create($request->all());
         
@@ -77,6 +83,12 @@ class StokKeluarController extends Controller
         $stok_keluar->barang_id = $request->barang_id;
         $stok_keluar->stok_keluar = $request->stok_keluar;
         $stok_keluar->tanggal = $request->tanggal;
+
+        $barang = Barang::find($request['barang_id']);
+        if (($barang->stok - $stok_keluar->stok_keluar) < 0) {
+            return redirect()->route('stok-keluar.create')->with('failed', 'Gagal menambahkan stok kurang');
+        }
+
         $stok_keluar->update();
         
         return redirect()->route('stok-keluar.index')->with('success', 'Stok keluar berhasil diubah!');;

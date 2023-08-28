@@ -55,7 +55,6 @@
 @endsection
 @section('scripts')
     {{-- sweetalert --}}
-
     <script>
         function deleteKategori(deleteurl) {
             $(document).ready(function() {

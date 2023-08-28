@@ -25,12 +25,14 @@ class BarangController extends Controller
     }
     
     function store(Request $request) {
+        
         $request->validate([
             'nm_barang' => 'required',
             'stok' => 'required',
             'satuan_id' => 'required',
             'harga' => 'required',
             'kategori_id' => 'required',
+            'file' => 'required'
         ]);
 
         $barang = new Barang;
@@ -69,6 +71,7 @@ class BarangController extends Controller
             'satuan_id' => 'required',
             'harga' => 'required',
             'kategori_id' => 'required',
+            'file' => 'required'
         ]);
 
 

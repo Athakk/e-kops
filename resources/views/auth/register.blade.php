@@ -8,6 +8,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <meta content="Codescandy" name="author">
     <title>Sign up eCommerce HTML Template - FreshCart </title>
     <!-- Favicon icon-->

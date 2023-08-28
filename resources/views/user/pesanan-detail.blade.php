@@ -2,14 +2,6 @@
 
 @section('title', 'E - Kops || Pesanan')
 
-@section('head')
-    <!-- @TODO: replace SET_YOUR_CLIENT_KEY_HERE with your client key -->
-    <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js"
-        data-client-key="SET_YOUR_CLIENT_KEY_HERE"></script>
-    <!-- Note: replace with src="https://app.midtrans.com/snap/snap.js" for Production environment -->
-
-@endsection
-
 @section('content')
 
     <main>
@@ -26,7 +18,7 @@
                                 <!-- nav item -->
                                 <li class="nav-item">
                                     <a class="nav-link active" aria-current="page" href="account-orders.html"><i
-                                            class="feather-icon icon-shopping-bag me-2"></i>Pesanan milikmu</a>
+                                            class="feather-icon icon-shopping-bag me-2"></i>Detail pesanan-mu</a>
                                 </li>
                                 <!-- nav item -->
                                 <li class="nav-item">
@@ -43,7 +35,15 @@
                     <div class="col-lg-9 col-md-8 col-12">
                         <div class="py-6 p-md-6 p-lg-10">
                             <!-- heading -->
-                            <h2 class="mb-6">Pesanan milikmu</h2>
+                            <div class="d-flex justify-content-between">
+
+                                <h2 class="mb-6">Detail pesanan milikmu</h2>
+
+                                <a href="{{ route('pesananHistory') }}">
+                                    <button type="button" class="btn btn btn-info" fdprocessedid="g81fsj"><i
+                                            class='bx bxs-chevron-left'></i>&nbsp;Kembali</button>
+                                </a>
+                            </div>
 
                             <div class="table-responsive-xxl border-0">
                                 <!-- Table -->
@@ -52,55 +52,32 @@
                                     <thead class="bg-light">
                                         <tr>
                                             <th>#</th>
-                                            <th>Kode Pesanan</th>
-                                            <th>Tanggal</th>
+                                            <th>Nama Barang</th>
+                                            <th>Qty</th>
                                             <th>Total harga</th>
-                                            <th>Status</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <!-- Table body -->
-
-                                        @forelse ($pesanan as $item)
+                                        @forelse ($pesananDetail as $item)
                                             <tr>
                                                 <td class="align-middle border-top-0 w-0">
                                                     {{ $loop->iteration }}
                                                 </td>
                                                 <td class="align-middle border-top-0">
-                                                    <a href="#" class="fw-semi-bold text-inherit">
-                                                        <h6 class="mb-0">{{ $item->kd_pesanan }}</h6>
+                                                    <a href="{{ route('item-detail', $item->id) }}"
+                                                        class="fw-semi-bold text-inherit">
+                                                        <h6 class="mb-0">{{ $item->barang->nm_barang }}</h6>
                                                     </a>
                                                 </td>
-                                                <td class="align-middle border-top-0">{{ $item->tanggal }}
+                                                <td class="align-middle border-top-0">{{ $item->qty }}
                                                 </td>
                                                 <td class="align-middle border-top-0">@currency($item->total_harga)
                                                 </td>
-                                                <td class="align-middle border-top-0">
-                                                    @if ($item->status == 0)
-                                                        <span class="badge bg-warning">
-                                                            Belum bayar
-                                                        </span>
-                                                    @elseif($item->status == 1)
-                                                        <span class="badge bg-info">
-                                                            Sudah bayar
-                                                        </span>
-                                                    @else
-                                                        <span class="badge bg-success">
-                                                            Selesai
-                                                        </span>
-                                                    @endif
-                                                </td>
                                                 <td>
-                                                    <a href="{{ route('pesananHistory.detail', $item->id) }}">
-                                                        <button class="btn btn-info" type="button"><i
-                                                                class="bi bi-eye fs-5"></i></button>
-                                                    </a>
-                                                    <button class="btn btn-primary {{ $item->status == 0 ? '' : 'd-none' }}"
-                                                        type="button" onclick="bayar('{{ $item->snapToken }}')"><i
-                                                            class="bi bi-wallet fs-5"></i></button>
                                                     <button
-                                                        onclick="deletePesanan('{{ route('Pesanan.destroy', $item->id) }}')"
+                                                        onclick="deletePesananDetail('{{ route('PesananDetail.destroy', $item->id) }}')"
                                                         class="btn btn-danger {{ $item->status == 0 ? '' : 'd-none' }}"
                                                         type="button"><i class="bi bi-trash fs-5"></i></button>
                                                 </td>
@@ -121,15 +98,12 @@
                     </div>
                 </div>
             </div>
-            <form action="{{ route('callBack') }}" method="post" id="form_callback">
-                @csrf
-                <input type="hidden" value="" id="json_callback" name="json_callback">
-            </form>
         </section>
     </main>
+
     {{-- sweetalert --}}
     <script>
-        function deletePesanan(deleteurl) {
+        function deletePesananDetail(deleteurl) {
             $(document).ready(function() {
 
                 $.ajaxSetup({
@@ -167,39 +141,7 @@
                         }
                     });
             });
-        }
 
-        function bayar(snapToken) {
-            // Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token
-            window.snap.pay(snapToken, {
-                onSuccess: function(result) {
-                    /* You may add your own implementation here */
-                    alert("payment success!");
-                    sendResponseFor(result)
-                    console.log(result);
-                },
-                onPending: function(result) {
-                    /* You may add your own implementation here */
-                    alert("wating your payment!");
-                    sendResponseFor(result)
-                    console.log(result);
-                },
-                onError: function(result) {
-                    /* You may add your own implementation here */
-                    alert("payment failed!");
-                    sendResponseFor(result)
-                    console.log(result);
-                },
-                onClose: function() {
-                    /* You may add your own implementation here */
-                    alert('you closed the popup without finishing the payment');
-                }
-            });
-
-            function sendResponseFor(result) {
-                document.getElementById('json_callback').value = JSON.stringify(result);
-                $('#form_callback').submit();
-            }
         }
     </script>
 @endsection

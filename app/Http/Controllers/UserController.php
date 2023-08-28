@@ -57,7 +57,7 @@ class UserController extends Controller
         $user->level = $request->level;
         $user->update();
         
-        return redirect()->route('user.index')->with('success', 'User berhasil diubah!');;
+        return redirect()->route('user.index')->with('success', 'User berhasil diubah!');
     }
 
     function destroy(User $user) {

@@ -39,7 +39,7 @@
                                     <td>{{ $item->kategori->nm_kategori }}</td>
                                     <td>{{ $item->stok . ' ' . $item->satuan->nm_satuan }}</td>
                                     <td>{{ 'Rp. ' . number_format($item->harga, 0, ',', '.') }}</td>
-                                    <td class="d-flex gap-1">
+                                    <td>
                                         <a href="{{ route('barang.edit', $item->id) }}">
                                             <button type="button" class="btn btn-icon btn-warning">
                                                 <span class="tf-icons bx bx-edit"></span>

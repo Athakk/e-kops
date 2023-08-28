@@ -10,21 +10,20 @@ class PesananController extends Controller
 {
     public function index()
     {
-        $pesanan = Pesanan::where('status', '!=', 2)->get();
-        $pesananDone = Pesanan::where('status', 2)->get();
+        $pesanan = Pesanan::with('user')->whereNot('status', '2')->orderBy('status', 'DESC')->get();
+        $pesananDone = Pesanan::with('user')->where('status', '2')->orderBy('status', 'DESC')->get();
         return view('admin.pesanan.index', compact('pesanan', 'pesananDone'));
     }
 
-    public function detail(PesananDetail $detail)
+    public function detail(Pesanan $pesanan)
     {
-        return view('admin.pesanan.detail', compact('detail'));
+        $detail = PesananDetail::with('barang')->where('pesanan_id', $pesanan->id)->get();
+        return view('admin.pesanan.detail', compact('pesanan', 'detail'));
     }
 
     function statusDone(Pesanan $pesanan) 
     {
-        $pesanan->status = 2;
-        $pesanan->update();
-
-        return redirect()->route('pesanan.index')->with('success', 'Status berhasil diubah!');
+        $pesanan->update(['status' => '2']);
+        return redirect()->route('pesanan')->with('success', 'Status berhasil diubah!');
     }
 }

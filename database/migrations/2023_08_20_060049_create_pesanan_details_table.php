@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->integer('qty');
             $table->bigInteger('total_harga');
-            $table->foreignIdFor(Barang::class)->onDelete('restrict');
-            $table->foreignIdFor(Pesanan::class)->onDelete('restrict');
+            $table->foreignIdFor(Barang::class);
+            $table->foreignIdFor(Pesanan::class)->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -55,5 +55,4 @@ class KategoriController extends Controller
             return response()->json(['status' => 'Kategori berhasil dihapus!']);
         }
     
-    
 }

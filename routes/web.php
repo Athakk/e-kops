@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BarangController;
+use App\Http\Controllers\BeliController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\KeranjangController;
@@ -37,14 +38,27 @@ Route::controller(AuthController::class)->group(function () {
 
     Route::middleware('auth')->group(function() {
         Route::controller(UserFrontController::class)->group(function () {
-            Route::get('/index', 'index')->name('index');
+            Route::get('/home', 'home')->name('home');
             Route::get('/toko', 'toko')->name('toko');
+            Route::get('/item-detail/{barang}', 'itemDetail')->name('item-detail');
+            Route::get('/toko/search/{barang}', 'tokoSearch')->name('toko.search');
             Route::get('/pesananHistory', 'pesananHistory')->name('pesananHistory');
+            Route::get('/pesananHistory/detail/{pesanan}', 'pesananHistoryDetail')->name('pesananHistory.detail');
+            Route::post('/searchItem', 'searchItem')->name('searchItem');
+            Route::get('/searchItem/kategori/{id}', 'searchItemKategori')->name('searchItem.kategori');
         });
 
         Route::controller(KeranjangController::class)->group(function () {
             Route::get('/addKeranjang/{barang}', 'addKeranjang')->name('addKeranjang');
         });
+        
+        Route::controller(BeliController::class)->group(function () {
+            Route::post('/beliFromDetail/{barang}', 'beliFromDetail')->name('beliFromDetail');
+            Route::post('/midtrans-callback', 'callBack')->name('callBack');
+            Route::delete('/PesananDetail/{pesananDetail}', 'destroyPesananDetail')->name('PesananDetail.destroy');
+            Route::delete('/Pesanan/{pesanan}', 'destroyPesanan')->name('Pesanan.destroy');
+        });
+
     });
 
     Route::middleware('admin')->group(function() {
@@ -54,8 +68,8 @@ Route::controller(AuthController::class)->group(function () {
         Route::prefix('admin')->group(function() {
             Route::controller(PesananController::class)->group(function () {
                 Route::get('/pesanan', 'index')->name('pesanan');
-                Route::get('/pesanan/{pesanan}/statusDone', 'statusDone')->name('pesanan.statusDone');
-                Route::get('/pesanan/{detail}/detail', 'detail')->name('pesanan.detail');
+                Route::get('/pesanan/detail/{pesanan}', 'detail')->name('pesanan.detail');
+                Route::get('/pesanan/statusDone/{pesanan}', 'statusDone')->name('pesanan.statusDone');
             });
             Route::resources([
                 'user' => UserController::class,

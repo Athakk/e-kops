@@ -6,7 +6,7 @@
     <div class="col-xxl">
         <div class="card mb-4">
             <div class="card-header d-flex align-items-center justify-content-between">
-                <h5 class="mb-0">Tambah User</h5>
+                <h5 class="mb-4 text-gray-800">Tambah User</h5>
                 <a href="{{ route('user.index') }}">
                     <button type="button" class="btn btn btn-outline-danger" fdprocessedid="g81fsj"><i
                             class='bx bxs-chevron-left'></i>&nbsp;Kembali</button>

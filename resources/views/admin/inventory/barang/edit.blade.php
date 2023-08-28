@@ -71,7 +71,7 @@
                         <div class="col-md-12">
                             <div class="mb-3">
                                 <label class="form-label" for="file">Foto Barang</label>
-                                <input type="file" class="dropify form-control" id="file" name="file"
+                                <input type="file" class="dropify form-control" id="file" name="file" required
                                     data-max-file-size="3M"
                                     data-default-file="{{ asset('storage/barang/' . $barang->foto) }}" />
                             </div>

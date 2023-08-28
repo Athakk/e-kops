@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('kd_pesanan')->unique();
             $table->enum('status', [0, 1, 2])->default(0); // Status 0 Belum bayar. 1 Sudah bayar. 2 Selesai
             $table->bigInteger('total_harga');
-            $table->date('tanggal');
             $table->foreignIdFor(User::class)->onDelete('restrict');
             $table->timestamps();
         });

@@ -9,7 +9,7 @@ class Pesanan extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['id', 'kode_pesanan', 'status', 'total_harga', 'user_id'];
+    protected $fillable = ['id', 'kd_pesanan', 'status', 'tanggal', 'total_harga', 'user_id', 'snapToken'];
 
     public function user()
     {

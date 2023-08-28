@@ -7,7 +7,7 @@
         <div class="card-header d-flex justify-content-between align-items-center">
             <div class="d-flex gap-1 align-items-center">
                 <h4 class="fw-bold m-0">Detail Pesanan</h4>
-                <div class="card-subtitle text-muted">9876545678</div>
+                <div class="card-subtitle text-muted">{{ $pesanan->kd_pesanan }}</div>
             </div>
 
             <div class="d-flex gap-1 justify-content-end align-items-center">
@@ -31,13 +31,15 @@
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
+                        @foreach ($detail as $item)
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $item->barang->nm_barang }}</td>
+                                <td>{{ $item->qty }}</td>
+                                <td>@currency($item->barang->harga) </td>
+                                <td>@currency($item->total_harga)</td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
